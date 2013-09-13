@@ -114,12 +114,32 @@ describe Tennis::Player do
           expect(player.score).to eq('advantage')
         end
       end
+      context 'when points is 15 and increments to 16 while opponent score is equal to 15' do
+        # basically it was duece and changes to advantage
+        it 'returns advantage' do
+          player.points = 15
+          player.opponent.points = 15
+          player.points = 16
+
+          expect(player.score).to eq('advantage')
+        end
+      end
       context 'when points is 4 and increments to 5 while opponent score is equal to 3' do
         # basically it was advantage and changes to win!
         it 'returns win' do
           player.points = 4
           player.opponent.points = 3
           player.points = 5
+
+          expect(player.score).to eq('win!')
+        end
+      end
+      context 'when points is 8 and increments to 9 while opponent score is equal to 7' do
+        # basically it was advantage and changes to win!
+        it 'returns win' do
+          player.points = 8
+          player.opponent.points = 7
+          player.points = 9
 
           expect(player.score).to eq('win!')
         end
