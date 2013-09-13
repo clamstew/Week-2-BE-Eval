@@ -55,7 +55,12 @@ module Tennis
           when 2 then "thirty"
           when 3 then "duece"
           when 4 then "advantage"
+          # when > 4 then "win"
         end
+      elsif @opponent.points > 3
+        return "Sorry, you lost" if points == 0..2
+        return "duece" if @points == 3 
+        return "advantage" if @points == 4
       end
     end
   end
