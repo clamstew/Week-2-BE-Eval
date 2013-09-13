@@ -40,11 +40,14 @@ module Tennis
 
     # Returns the String score for the player.
     def score
-      case @points
-        when 0 then "love"
-        when 1 then "fifteen"
-        when 2 then "thirty"
-        when 3 then "forty"
+      if @opponent.points < 3
+        case @points
+          when 0 then "love"
+          when 1 then "fifteen"
+          when 2 then "thirty"
+          when 3 then "forty"
+          when 4 then "win!"
+        end
       end
     end
   end
