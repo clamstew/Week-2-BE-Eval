@@ -48,6 +48,14 @@ module Tennis
           when 3 then "forty"
           when 4 then "win!"
         end
+      # elsif @opponent.points == 3
+      #   case @points
+      #     when 0 then "love"
+      #     when 1 then "fifteen"
+      #     when 2 then "thirty"
+      #     when 3 then "duece"
+      #     when 4 then "advantage"
+      #   end
       end
     end
   end

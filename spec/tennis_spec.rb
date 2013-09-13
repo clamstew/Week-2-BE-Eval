@@ -93,7 +93,13 @@ describe Tennis::Player do
 
     # duece
     context 'when points is 2 and increments to 3 while opponent score is equal to 3' do
-      it 'returns duece'
+      it 'returns duece' do
+        player.points = 2
+        player.opponent.points = 3
+        player.points = 3
+
+        expect(player.score).to eq('duece')
+      end
     end
 
     # advantage
