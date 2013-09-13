@@ -82,7 +82,13 @@ describe Tennis::Player do
 
     # win
     context 'when points is 3 and increments to 4 while opponent score is less than 3' do
-      it 'returns win!'
+      it 'returns win!' do
+        player.points = 3
+        player.opponent.points = 2
+        player.points = 4
+
+        expect(player.score).to eq('win!')
+      end
     end
 
     # duece
