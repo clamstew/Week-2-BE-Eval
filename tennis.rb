@@ -40,28 +40,14 @@ module Tennis
 
     # Returns the String score for the player.
     def score
-      if @opponent.points < 3
-        case @points
-          when 0 then "love"
-          when 1 then "fifteen"
-          when 2 then "thirty"
-          when 3 then "forty"
-          when 4 then "win!"
-        end
-      elsif @opponent.points == 3
-        case @points
-          when 0 then "love"
-          when 1 then "fifteen"
-          when 2 then "thirty"
-          when 3 then "duece"
-          when 4 then "advantage"
-          # when > 4 then "win"
-        end
-      elsif @opponent.points > 3
-        return "Sorry, you lost" if points == 0..2
-        return "duece" if @points == 3 
-        return "advantage" if @points == 4
-      end
+      return "Sorry, you lost this game" if (@points == 0 || @points == 1 || @points == 2) && @opponent.points >= 4
+      return "love" if @points == 0 
+      return "fifteen" if @points == 1
+      return "thirty" if @points == 2
+      return "forty" if @points == 3 && @opponent.points < 3
+      return "duece" if @points == 3 && @opponent.points == 3
+      return "advantage" if @points >= 4 && @opponent.points >= 3 && @points == @opponent.points + 1
+      return "win!" if (@points >= 3 && @opponent.points < 3) || (@points >= 3 && @opponent.points >= 3 && @points > @opponent.points + 1)
     end
   end
 end

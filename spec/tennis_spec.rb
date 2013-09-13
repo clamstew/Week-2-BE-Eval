@@ -103,14 +103,35 @@ describe Tennis::Player do
     end
 
     # advantage
-    context 'when points is 3 and increments to 4 while opponent score is equal to 3' do
-      it 'returns advantage' do
-        player.points = 3
-        player.opponent.points = 3
-        player.points = 4
+    context 'advantage scenarios' do
+      context 'when points is 3 and increments to 4 while opponent score is equal to 3' do
+        # basically it was duece and changes to advantage
+        it 'returns advantage' do
+          player.points = 3
+          player.opponent.points = 3
+          player.points = 4
 
-        expect(player.score).to eq('advantage')
+          expect(player.score).to eq('advantage')
+        end
+      end
+      context 'when points is 4 and increments to 5 while opponent score is equal to 3' do
+        # basically it was advantage and changes to win!
+        it 'returns win' do
+          player.points = 4
+          player.opponent.points = 3
+          player.points = 5
+
+          expect(player.score).to eq('win!')
+        end
       end
     end
   end
 end
+
+
+
+
+
+
+
+
