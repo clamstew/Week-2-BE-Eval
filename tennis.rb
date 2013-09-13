@@ -1,3 +1,7 @@
+# NOTE: 
+#   For the purposes of this exercise, we'll assume that 
+#   we're only scoring a single game of tennis - no sets or matches.
+
 module Tennis
   class Game
     attr_accessor :player1, :player2
@@ -12,12 +16,11 @@ module Tennis
 
     # Records a win for a ball in a game.
     #
-    # winner - The Integer (1 or 2) representing the winning player.
+    # winner - The Object of Tennis::Player class
     #
     # Returns the score of the winning player. 
     def wins_ball(winner)
-      # TODO: Think it's gross to pass an integer instead of a player object?
-      # Then reimplement this method!
+      winner.points += 1
     end
   end
 
@@ -38,6 +41,9 @@ module Tennis
     # Returns the String score for the player.
     def score
       return 'love' if @points == 0
+      return 'fifteen' if @points == 1
+      return 'thirty' if @points == 2
+      return 'forty' if @points == 3
     end
   end
 end
