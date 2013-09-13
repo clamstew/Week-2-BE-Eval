@@ -38,7 +38,7 @@ module Tennis
       @points += 1
     end
 
-    # Returns the String score for the player.
+    # Returns the String score for the player. 
     def score
       return "Sorry, you lost this game" if (@points == 0 || @points == 1 || @points == 2) && @opponent.points == 4
       return "love" if @points == 0 
